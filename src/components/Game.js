@@ -101,5 +101,4 @@ class Game extends Component {
   }
 }
 
-//Need to add extra features
 export default Game;
