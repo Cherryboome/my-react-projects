@@ -26,7 +26,6 @@ class Game extends Component {
 
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      //   console.log(lines[i], squares[a]);
 
       if (
         squares[a] &&
