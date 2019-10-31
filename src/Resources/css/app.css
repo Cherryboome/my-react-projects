@@ -308,7 +308,7 @@ footer .footer_discl {
 .match_box_big .block_wraper {
     display: inline-block;
     margin-right: 50px;
-    float: left;
+    /* float: left; */
 }
 
 .match_box_big .block {
