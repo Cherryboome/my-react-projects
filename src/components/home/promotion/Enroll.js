@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 import FormField from "../../ui/formFields";
 import { validate } from "../../ui/misc";
-import { setTimeout } from "timers";
 
 import { firebasePromotions } from "../../../firebase";
 
