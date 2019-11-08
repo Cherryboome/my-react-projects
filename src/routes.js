@@ -13,12 +13,18 @@ import AdminMatches from "./components/admin/matches";
 import EditMatch from "./components/admin/matches/editMatch";
 
 const Routes = props => {
-  console.log(props);
+  // console.log(props);
 
   return (
     <>
       <Layout>
         <Switch>
+          <PrivateRoute
+            {...props}
+            exact
+            component={EditMatch}
+            path='/admin_matches/edit_match'
+          />
           <PrivateRoute
             {...props}
             exact
