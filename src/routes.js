@@ -11,6 +11,7 @@ import SignIn from "./components/signin";
 import Dashboard from "./components/admin/Dashboard";
 import AdminMatches from "./components/admin/matches";
 import EditMatch from "./components/admin/matches/editMatch";
+import AdminPlayers from "./components/admin/players";
 
 const Routes = props => {
   // console.log(props);
@@ -19,6 +20,12 @@ const Routes = props => {
     <>
       <Layout>
         <Switch>
+          <PrivateRoute
+            {...props}
+            exact
+            component={AdminPlayers}
+            path='/admin_players'
+          />
           <PrivateRoute
             {...props}
             exact
