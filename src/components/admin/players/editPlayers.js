@@ -4,6 +4,7 @@ import AdminLayout from "../../../Hoc/AdminLayout";
 import FormField from "../../ui/formFields";
 import { validate } from "../../ui/misc";
 
+import Fileuploader from "../../ui/fileuploader";
 import { firebase, firebaseDB, firebasePlayers } from "../../../firebase";
 
 class EditPlayers extends Component {
@@ -79,6 +80,14 @@ class EditPlayers extends Component {
         valid: false,
         validationMessage: "",
         showLabel: true
+      },
+      image: {
+        element: "image",
+        value: "",
+        validation: {
+          required: true
+        },
+        valid: true
       }
     }
   };
@@ -133,6 +142,14 @@ class EditPlayers extends Component {
     }
   };
 
+  resetImg = () => {
+    // resets image to default
+  };
+
+  storeFilename = filename => {
+    console.log(filename);
+  };
+
   render() {
     return (
       <AdminLayout>
@@ -140,6 +157,14 @@ class EditPlayers extends Component {
           <h2>{this.state.formType}</h2>
           <div>
             <form onSubmit={event => this.submitForm(event)}>
+              <Fileuploader
+                dir='players'
+                tag={"Player image"}
+                defaultImg={this.state.defaultImg}
+                defaultImgName={this.state.formData.image.value}
+                resetImg={() => this.resetImg()}
+                filename={filename => this.storeFilename(filename)}
+              />
               <FormField
                 id={"name"}
                 formData={this.state.formData.name}
