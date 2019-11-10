@@ -29,9 +29,10 @@ class Fileuploader extends Component {
       .child(filename)
       .getDownloadURL()
       .then(url => {
-        // console.log(url);
         this.setState({ fileURL: url });
       });
+
+    this.props.filename(filename);
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -43,6 +44,15 @@ class Fileuploader extends Component {
     }
     return null;
   }
+
+  resetToDefaults = () => {
+    this.setState({
+      name: "",
+      isUploading: false,
+      fileURL: ""
+    });
+    this.props.resetImg();
+  };
 
   render() {
     return (
@@ -75,7 +85,7 @@ class Fileuploader extends Component {
               src={this.state.fileURL}
               alt={this.state.name}
             />
-            <div className='remove' onClick={() => this.uploadAgain()}>
+            <div className='remove' onClick={() => this.resetToDefaults()}>
               Remove
             </div>
           </div>
